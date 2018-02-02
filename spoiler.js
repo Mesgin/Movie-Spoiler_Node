@@ -21,7 +21,6 @@ request(googleSearchUrl, function (err, response, body) {
     let googleResults = [];
 
     $('#res h3.r').each(function (i, elem) {
-        console.log($(this).text())
         googleResults[i] = $(this).text();
     });
 
