@@ -5,8 +5,12 @@ const readlineSync = require('readline-sync');
 console.log(`\nWelcome, I'm a Movie Spoiler Robot\n`)
 
 let movieTitle = readlineSync.question('Which movie do you want me to spoil for you? ')
-let spoilerTime = readlineSync.question('In how many seconds do you want me to do this? ')
+while (!movieTitle) {
+    console.log('You should specify a name')
+    movieTitle = readlineSync.question('Which movie do you want me to spoil for you? ')
+}
 
+let spoilerTime = readlineSync.question('In how many seconds do you want me to do this? ')
 while (spoilerTime < 0) {
     console.log('Time should be a positive number')
     spoilerTime = readlineSync.question('In how many seconds do you want me to do this? ')
