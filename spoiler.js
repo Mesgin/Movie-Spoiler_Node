@@ -1,6 +1,6 @@
 const request = require('request')
 const cheerio = require('cheerio')
-const readlineSync = require('readline-sync');
+const readlineSync = require('readline-sync')
 
 console.log(`\nWelcome, I'm a Movie Spoiler Robot\n`)
 
@@ -22,10 +22,10 @@ request(googleSearchUrl, function (err, response, body) {
     if (err) console.log(err)
 
     let $ = cheerio.load(body)
-    let googleResults = [];
+    let googleResults = []
 
     $('#res h3.r').each(function (i, elem) {
-        googleResults[i] = $(this).text();
+        googleResults[i] = $(this).text()
     });
 
     request(`https://api.themoviedb.org/3/search/movie?api_key=d730ddf7f4c9229a1877979dcfa57302&query=${movieTitle}`, function (err, response, data) {
